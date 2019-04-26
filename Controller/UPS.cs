@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -25,10 +26,32 @@ namespace APCUPS
             Status = new UPSStatus(manager);
             Status.PropertyChanged += Status_PropertyChanged;
             manager.WriteAndWaitForResponse("Y", 100);
+            SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
+            SystemEvents.SessionEnding += SystemEvents_SessionEnding;
             shutdownTimer = new Timer();
             shutdownTimer.Interval = 500;
             shutdownTimer.Elapsed += t_Elapsed;
             shutdownTimer.Start();
+        }
+
+        private void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
+        {
+            switch(e.Reason)
+            {
+                case SessionEndReasons.SystemShutdown:
+                    ShutdownGracefully();
+                    break;
+            }
+        }
+
+        private void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
+        {
+            switch (e.Mode)
+            {
+                case PowerModes.Suspend:
+                    ShutdownGracefully();
+                    break;
+            }
         }
 
         void Status_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -83,21 +106,21 @@ namespace APCUPS
 
         private bool computerIsShuttingDown()
         {
-            string query = "*[System/EventID=1074]";
-            EventLogQuery elq = new EventLogQuery("System", PathType.LogName, query);
-            EventLogReader elr = new EventLogReader(elq);
-            EventRecord entry;
-            while ((entry = elr.ReadEvent()) != null)
-            {
-                if (entry.TimeCreated.HasValue && entry.TimeCreated.Value.AddMinutes(1) > DateTime.Now)
-                {
-                    string xml = entry.ToXml();
-                    if (xml.ToLower().Contains("power off"))
-                    {
-                        return true;
-                    }
-                }
-            }
+            //string query = "*[System/EventID=1074]";
+            //EventLogQuery elq = new EventLogQuery("System", PathType.LogName, query);
+            //EventLogReader elr = new EventLogReader(elq);
+            //EventRecord entry;
+            //while ((entry = elr.ReadEvent()) != null)
+            //{
+            //    if (entry.TimeCreated.HasValue && entry.TimeCreated.Value.AddMinutes(1) > DateTime.Now)
+            //    {
+            //        string xml = entry.ToXml();
+            //        if (xml.ToLower().Contains("power off"))
+            //        {
+            //            return true;
+            //        }
+            //    }
+            //}
             return false;
         }
 

@@ -35,7 +35,6 @@ namespace APCUPS
             stackSettings.DataContext = UPS.Settings;
             UPS.Status.PropertyChanged += Status_PropertyChanged;
             this.Hide();
-            
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

@@ -13,7 +13,7 @@ namespace APCUPS
     public class UPSSettings : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        string _portName = "COM00";
+        string _portName = "COM4";
         int _baudRate = 2400;
         Parity _parity = Parity.None;
         int _dataBits = 8;
