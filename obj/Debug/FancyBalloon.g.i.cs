@@ -132,7 +132,7 @@ namespace APCUPS {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/APCUPS;component/fancyballoon.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UPS Power Management;component/fancyballoon.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\FancyBalloon.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

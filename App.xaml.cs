@@ -18,14 +18,15 @@ namespace APCUPS
 
         public App()
         {
-            string procName = Process.GetCurrentProcess().ProcessName;
+
+            string procName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
 
             // get the list of all processes by the "procName"       
             Process[] processes = Process.GetProcessesByName(procName);
 
             if (processes.Length > 1)
             {
-                return;
+                Application.Current.Shutdown();
             }
             else
             {

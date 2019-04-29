@@ -16,3 +16,23 @@ C:\VariousProjects\APCUPS\APCUPS\obj\Release\APCUPS.Properties.Resources.resourc
 C:\VariousProjects\APCUPS\APCUPS\obj\Release\APCUPS.csproj.GenerateResource.Cache
 C:\VariousProjects\APCUPS\APCUPS\obj\Release\APCUPS.exe
 C:\VariousProjects\APCUPS\APCUPS\obj\Release\APCUPS.pdb
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\bin\Release\UPS Power Management.exe.config
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\bin\Release\UPS Power Management.exe
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\bin\Release\UPS Power Management.pdb
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\bin\Release\Hardcodet.Wpf.TaskbarNotification.dll
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\bin\Release\Hardcodet.Wpf.TaskbarNotification.pdb
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\bin\Release\Hardcodet.Wpf.TaskbarNotification.xml
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\FancyBalloon.baml
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\FancyBalloon.g.cs
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\MainWindow.g.cs
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\App.g.cs
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\UPS Power Management_Content.g.cs
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\UPS Power Management_MarkupCompile.cache
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\UPS Power Management_MarkupCompile.lref
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\MainWindow.baml
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\UPS Power Management.g.resources
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\APCUPS.Properties.Resources.resources
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\APCUPS.csproj.GenerateResource.Cache
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\UPS Power Management.exe
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\UPS Power Management.pdb

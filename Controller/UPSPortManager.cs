@@ -160,7 +160,7 @@ namespace APCUPS
                 {
                     portNameCollection[i] = "COM" + Regex.Replace(portNameCollection[i], @"\D*(\d+)\D*", @"$1");
                 }
-                // If serial ports is found, we select the first found
+                // If serial ports are found, we select the first found
                 if (portNameCollection.Length > 0)
                 {
                     _serialPort = new SerialPort(
@@ -212,6 +212,8 @@ namespace APCUPS
                                 //this is our serial port.
                                 PortActive = true;
                                 _currentSerialSettings.PortName = portName;
+                                //save the settings once we've found the right port
+                                UPSSettings.Serialize(_currentSerialSettings);
                                 break;
                             }
                         }
