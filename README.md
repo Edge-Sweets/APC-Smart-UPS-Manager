@@ -15,18 +15,23 @@ Allow you to change:
 
 
 UPS Power Management Software
+
 The UPS Power Management Software is a custom piece of software used to integrate with the APC Smart UPS devices, specifically the SC type devices, but usable for a variety of them.  The main purpose of the software is to allow the configuration of the UPS device and allow for a graceful shutdown of both the UPS device and the computer in the event of computer shutdown or power loss, respectively.
 
 Installing the UPS Power Management Software
+
 The Power Management Software install will guide you through a wizard and install to an Edge-Sweets directory. An icon on the desktop will show up, and the software will automatically launch when your computer starts.
 
 First Startup of the UPS Management Software
+
 When you first launch the software, it will search your serial ports to determine if one of them has a connection to the UPS. Please be sure your UPS is plugged in, otherwise you will have to close the UPS Management Software and open it again to perform a new search.  There is no visual indication that a search is being done. If it finds a UPS, you will see the status information fill in on the configuration window.
 
 Using the UPS Management Software
+
 To use the UPS management software, first start it from the desktop icon.  Note: You will likely notice nothing pops up. This is because the software is designed to run in the background.  To view the configuration, check your icons in the bottom-right of your screen for a battery icon that matches the desktop icon.  Double-clicking the icon in the bottom-right will open the configuration screen.
 
 UPS Configuration Screen
+
 The UPS configuration screen contains all the feedback about your UPS, along with the ability to change a few of the settings.  Here is the list of status information shown:
 1.	Model – This is the model of Smart-UPS that is currently connected
 2.	Power Type – indicates whether you’re on line (normal) power or battery power
@@ -43,9 +48,11 @@ Below the status information are 3 options that you can change.
  
 
 Shutting down the UPS Management Software
+
 If for some reason you need to shut down the software, you can do so by right-clicking the icon in the bottom-right corner and selecting “Exit UPS Manager”.
  
 Starting the Smart-UPS after a computer shutdown
+
 If the computer is shutdown, a signal will be sent to the Smart-UPS to shut down as well.
 This signal also tells the UPS to start back up when power comes back.
 Please note: This means the order of events for shutting down a computer/UPS combination are:
@@ -54,4 +61,5 @@ Please note: This means the order of events for shutting down a computer/UPS com
 If done in this order, the UPS will automatically start back up when you turn power back on. Otherwise you will have to turn the UPS on manually.
 
 Starting the computer after a loss of power
+
 If you lost power and the computer shut down, there is not currently a way to start the computer back up other than manually starting it yourself.
