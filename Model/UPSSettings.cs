@@ -139,6 +139,7 @@ namespace APCUPS
             {
                 Directory.CreateDirectory(saveDirectory);
             }
+            System.IO.File.Delete(saveDirectory + fileName);
             using (var writer = XmlWriter.Create(saveDirectory + fileName))
             {
                 serializer.Serialize(writer, info);

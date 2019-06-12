@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:local="clr-namespace:APCUPS"
-        Title="UPS Manager" Height="800" Width="500" Foreground="#FFECAD25" Icon="Images/battery.png">
+        Title="UPS Manager" Height="850" Width="500" Foreground="#FFECAD25" Icon="Images/battery.png">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="18" />
@@ -164,6 +164,14 @@
                     </ComboBox>
                 </StackPanel>
                 <Button Content="Change Alarm" Width="200" Height="35" FontSize="20" Margin="50,10,0,0" Click="Button_Click_1" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                <StackPanel>
+                    <Label Content="Change Serial Port" Width="210" />
+                    <ComboBox x:Name="cbCOMPorts" Width="200">
+                    </ComboBox>
+                </StackPanel>
+                <Button Content="Change Port" Width="200" Height="35" FontSize="20" Margin="50,10,0,0" x:Name="btnCOMPort" Click="btnCOMPort_Click" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
                 <StackPanel>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,14 @@ namespace APCUPS
             gbStatus.DataContext = UPS.Status;
             stackSettings.DataContext = UPS.Settings;
             UPS.Status.PropertyChanged += Status_PropertyChanged;
+
+            cbCOMPorts.Items.Clear();
+            string[] portNameCollection = SerialPort.GetPortNames();
+            foreach (string port in portNameCollection)
+            {
+                cbCOMPorts.Items.Add(port);
+            }
+            cbCOMPorts.SelectedIndex = cbCOMPorts.Items.IndexOf(UPS.Settings.PortName);
             this.Hide();
         }
 
@@ -92,13 +101,18 @@ namespace APCUPS
                 case "disabled": delay = UPSStatus.AlarmDelayEnum.Disabled; break;
             }
             UPS.ChangeAlarmDelay(delay);
-
-           
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             UPS.Settings.ComputerShutdownDelay = Convert.ToInt32(txtComputerShutdownDelay.Text);
+            UPSSettings.Serialize(UPS.Settings);
+        }
+
+        private void btnCOMPort_Click(object sender, RoutedEventArgs e)
+        {
+            UPS.Settings.PortName = cbCOMPorts.SelectedItem.ToString();
+            UPSSettings.Serialize(UPS.Settings);
         }
     }
 }

@@ -16,7 +16,6 @@ namespace APCUPS
         public UPSStatus Status;
         private UPSPortManager manager;
         public UPSSettings Settings;
-        private Timer shutdownTimer;
         private Timer computerShutdownTimer;
 
         public UPS()
@@ -28,10 +27,7 @@ namespace APCUPS
             manager.WriteAndWaitForResponse("Y", 100);
             SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
             SystemEvents.SessionEnding += SystemEvents_SessionEnding;
-            shutdownTimer = new Timer();
-            shutdownTimer.Interval = 500;
-            shutdownTimer.Elapsed += t_Elapsed;
-            shutdownTimer.Start();
+           
         }
 
         private void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
@@ -86,44 +82,6 @@ namespace APCUPS
             }
         }
 
-        void t_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            IsClosing();
-        }
-
-        /// <summary>
-        /// Method to determine if the application is closing because of a shutdown.
-        /// If it is, we need to gracefully shut down the UPS as well.
-        /// </summary>
-        public void IsClosing()
-        {
-            if (computerIsShuttingDown())
-            {
-                ShutdownGracefully();
-                shutdownTimer.Stop();
-            }
-        }
-
-        private bool computerIsShuttingDown()
-        {
-            //string query = "*[System/EventID=1074]";
-            //EventLogQuery elq = new EventLogQuery("System", PathType.LogName, query);
-            //EventLogReader elr = new EventLogReader(elq);
-            //EventRecord entry;
-            //while ((entry = elr.ReadEvent()) != null)
-            //{
-            //    if (entry.TimeCreated.HasValue && entry.TimeCreated.Value.AddMinutes(1) > DateTime.Now)
-            //    {
-            //        string xml = entry.ToXml();
-            //        if (xml.ToLower().Contains("power off"))
-            //        {
-            //            return true;
-            //        }
-            //    }
-            //}
-            return false;
-        }
-
         /// <summary>
         /// Gracefully shuts down the UPS. This is how the UPS will shut down when the computer is shutting down.
         /// </summary>
@@ -157,8 +115,6 @@ namespace APCUPS
             manager.WriteSerial(((char)14).ToString());
         }
 
-
-        
         public void ChangeShutdownDelay(APCUPS.UPSStatus.GracefulDelay newDelay)
         {
             Status.PauseTimer();

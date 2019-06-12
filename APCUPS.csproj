@@ -95,11 +95,11 @@
     </ApplicationDefinition>
     <Compile Include="Commands\CloseUPSManager.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\OpenWindowCommand.cs" />
     <Compile Include="FancyBalloon.xaml.cs">
       <DependentUpon>FancyBalloon.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\HideUPSWindow.cs" />
-    <Compile Include="Commands\OpenWindowCommand.cs" />
     <Compile Include="Commands\ShowUPSWindow.cs" />
     <Compile Include="Controller\UPS.cs" />
     <Compile Include="Controller\UPSPortManager.cs" />

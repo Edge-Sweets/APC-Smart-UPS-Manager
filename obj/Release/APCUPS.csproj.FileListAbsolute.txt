@@ -36,3 +36,4 @@ C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\APCUPS.Properties.Resour
 C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\APCUPS.csproj.GenerateResource.Cache
 C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\UPS Power Management.exe
 C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\UPS Power Management.pdb
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Release\APCUPS.csprojResolveAssemblyReference.cache
