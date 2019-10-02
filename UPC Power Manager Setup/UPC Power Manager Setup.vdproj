@@ -256,15 +256,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:UPS Power Manager"
-        "ProductCode" = "8:{C1C46302-53AA-4407-AC19-FCC0DC6417BF}"
-        "PackageCode" = "8:{A38A3D4D-8946-4B27-8200-889239E068B6}"
+        "ProductCode" = "8:{D19071FA-645D-49DD-9923-E66E163B4C13}"
+        "PackageCode" = "8:{94EF409C-7657-44C6-B13D-A34ADF8A6BF8}"
         "UpgradeCode" = "8:{5F8386CF-32BD-4080-B2D2-1A8189AC9F60}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.6"
+        "ProductVersion" = "8:1.0.7"
         "Manufacturer" = "8:Edge-Sweets"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -834,7 +834,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_FA1A64603C7842C2B2CE78E0A43D959E"
             {
-            "SourcePath" = "8:..\\obj\\Release\\UPS Power Management.exe"
+            "SourcePath" = "8:..\\obj\\Debug\\UPS Power Management.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D342D1CF8D594A108E0D46F1FD0DECAE"

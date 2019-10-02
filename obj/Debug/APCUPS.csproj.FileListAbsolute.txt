@@ -36,3 +36,5 @@ C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Debug\UPS Power Management_Marku
 C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Debug\UPS Power Management.g.resources
 C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Debug\UPS Power Management.exe
 C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Debug\UPS Power Management.pdb
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Debug\APCUPS.csproj.CoreCompileInputs.cache
+C:\github\Edge-Sweets\APC-Smart-UPS-Manager\obj\Debug\APCUPS.csproj.CopyComplete
