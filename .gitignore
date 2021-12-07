@@ -2,3 +2,10 @@ bin
 obj/*.*
 Debug
 Release
+obj/Release/MainWindow.g.i.cs
+obj/Release/MainWindow.g.cs
+obj/Release/MainWindow.baml
+obj/Release/APCUPS.csproj.FileListAbsolute.txt
+obj/Debug/APCUPS.csproj.FileListAbsolute.txt
+.vs/APCUPS/v16/Server/sqlite3/storage.ide
+.vs/APCUPS/v16/.suo
