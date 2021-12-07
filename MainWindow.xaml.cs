@@ -114,5 +114,13 @@ namespace APCUPS
             UPS.Settings.PortName = cbCOMPorts.SelectedItem.ToString();
             UPSSettings.Serialize(UPS.Settings);
         }
+
+        private void btnSendCommand_Click(object sender, RoutedEventArgs e)
+        {
+            var commandText = txtCommand.Text;
+            txtCommandResult.Content = "";
+            var commandResponse = UPS.PortManager.WriteAndWaitForResponse(commandText, 100);
+            txtCommandResult.Content = commandResponse;
+        }
     }
 }

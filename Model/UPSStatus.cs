@@ -190,7 +190,7 @@ namespace APCUPS
                 string pType = _manager.WriteAndWaitForResponse("Q", 100);
                 switch (pType)
                 {
-                    case "08": PowerType = PowerTypeEnum.Line; break;
+                    case "08": case "0A": PowerType = PowerTypeEnum.Line; break;
                     case "10": PowerType = PowerTypeEnum.Battery; break;
                 }
                 InputVoltage = _manager.WriteAndWaitForResponse("L", 100);

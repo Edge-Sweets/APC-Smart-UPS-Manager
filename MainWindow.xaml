@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:local="clr-namespace:APCUPS"
-        Title="UPS Manager" Height="850" Width="500" Foreground="#FFECAD25" Icon="Images/battery.png">
+        Title="UPS Manager" Height="825" Width="500" Foreground="#FFECAD25" Icon="Images/battery.png">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="18" />
@@ -179,7 +179,17 @@
                     <TextBox x:Name="txtComputerShutdownDelay" Height="35" Width="275" HorizontalAlignment="Left" Margin="10,0,0,0" />
                     <Button Content="Change Delay" Width="200" Height="35" FontSize="20" Margin="10,10,0,0" Click="Button_Click_2" HorizontalAlignment="Left" />
                 </StackPanel>
-                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                <StackPanel>
+                    <Label Content="Send Command" Width="375" />
+                    <TextBox x:Name="txtCommand" Height="35" Width="275" HorizontalAlignment="Left" Margin="10,0,0,0" />
+                    <Button x:Name="btnSendCommand" Content="Send Command" Width="200" Height="35" FontSize="20" Margin="10,10,0,0" Click="btnSendCommand_Click"  HorizontalAlignment="Left" />
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Command Result: " ></Label>
+                        <Label x:Name="txtCommandResult"></Label>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>

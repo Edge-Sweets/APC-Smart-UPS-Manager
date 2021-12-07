@@ -29,8 +29,6 @@ namespace APCUPS
             heartbeatTimer.Start();
         }
 
-        //this method will likely never do anything. It required the USB
-        //to be unplugged, which causes an exception in windows.
         void heartbeatTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             if (!PortActive)

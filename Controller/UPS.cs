@@ -14,17 +14,17 @@ namespace APCUPS
     {
 
         public UPSStatus Status;
-        private UPSPortManager manager;
+        public UPSPortManager PortManager;
         public UPSSettings Settings;
         private Timer computerShutdownTimer;
 
         public UPS()
         {
             Settings = UPSSettings.Deserialize();
-            manager = new UPSPortManager(Settings);
-            Status = new UPSStatus(manager);
+            PortManager = new UPSPortManager(Settings);
+            Status = new UPSStatus(PortManager);
             Status.PropertyChanged += Status_PropertyChanged;
-            manager.WriteAndWaitForResponse("Y", 100);
+            PortManager.WriteAndWaitForResponse("Y", 100);
             SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
             SystemEvents.SessionEnding += SystemEvents_SessionEnding;
            
@@ -87,22 +87,22 @@ namespace APCUPS
         /// </summary>
         public void ShutdownGracefully()
         {
-            manager.WriteSerial("Y");
+            PortManager.WriteSerial("Y");
             System.Threading.Thread.Sleep(150);
-            manager.WriteSerial("U");
+            PortManager.WriteSerial("U");
             System.Threading.Thread.Sleep(150);
-            string listen = manager.WriteAndWaitForResponse("S", 100);
+            string listen = PortManager.WriteAndWaitForResponse("S", 100);
             int numTries = 0;
             int maxTries = 15;
             while (listen != "OK" && numTries < maxTries)
             {
                 System.Threading.Thread.Sleep(50);
-                listen = manager.WriteAndWaitForResponse("S", 100);
+                listen = PortManager.WriteAndWaitForResponse("S", 100);
                 numTries++;
             }
-            manager.WriteSerial("K");
+            PortManager.WriteSerial("K");
             System.Threading.Thread.Sleep(750);
-            manager.WriteSerial("K");
+            PortManager.WriteSerial("K");
         }
 
         /// <summary>
@@ -110,21 +110,21 @@ namespace APCUPS
         /// </summary>
         public void TurnOnUPS()
         {
-            manager.WriteSerial(((char)14).ToString());
+            PortManager.WriteSerial(((char)14).ToString());
             System.Threading.Thread.Sleep(1500);
-            manager.WriteSerial(((char)14).ToString());
+            PortManager.WriteSerial(((char)14).ToString());
         }
 
         public void ChangeShutdownDelay(APCUPS.UPSStatus.GracefulDelay newDelay)
         {
             Status.PauseTimer();
             System.Threading.Thread.Sleep(250);
-            string currentDelay = manager.WriteAndWaitForResponse("p", 100);
+            string currentDelay = PortManager.WriteAndWaitForResponse("p", 100);
             currentDelay = currentDelay.Replace(".", "");
             while (Convert.ToInt32(currentDelay) != (int)newDelay)
             {
-                manager.WriteAndWaitForResponse("-", 50);
-                currentDelay = manager.WriteAndWaitForResponse("p", 100);
+                PortManager.WriteAndWaitForResponse("-", 50);
+                currentDelay = PortManager.WriteAndWaitForResponse("p", 100);
                 currentDelay = currentDelay.Replace(".", "");
             }
             Status.ShutdownDelay = UPSStatus.GetEnumDescription((UPSStatus.GracefulDelay)Enum.Parse(typeof(UPSStatus.GracefulDelay), currentDelay));
@@ -135,14 +135,14 @@ namespace APCUPS
         {
             Status.PauseTimer();
             System.Threading.Thread.Sleep(250);
-            string currentDelay = manager.WriteAndWaitForResponse("k", 100);
+            string currentDelay = PortManager.WriteAndWaitForResponse("k", 100);
             currentDelay = currentDelay.Replace(".", "");
             UPSStatus.AlarmDelayEnum delayEnum = SetAlarmDelayEnum(currentDelay);
 
             while (delayEnum != newDelay)
             {
-                manager.WriteAndWaitForResponse("-", 50);
-                currentDelay = manager.WriteAndWaitForResponse("k", 100);
+                PortManager.WriteAndWaitForResponse("-", 50);
+                currentDelay = PortManager.WriteAndWaitForResponse("k", 100);
                 currentDelay = currentDelay.Replace(".", "");
                 delayEnum = SetAlarmDelayEnum(currentDelay);
             }
