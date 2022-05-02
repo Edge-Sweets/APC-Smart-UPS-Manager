@@ -164,7 +164,7 @@ namespace APCUPS
 
         public UPSStatus(UPSPortManager manager)
         {
-            _manager = manager;
+            _manager = manager; 
             timer = new Timer();
             timer.Interval = 2000;
             timer.Elapsed += t_Elapsed;
@@ -196,7 +196,7 @@ namespace APCUPS
                 InputVoltage = _manager.WriteAndWaitForResponse("L", 100);
                 OutputVoltage = _manager.WriteAndWaitForResponse("O", 100);
                 BatteryLevel = _manager.WriteAndWaitForResponse("f", 100);
-                UPSStatus.GracefulDelay shutdownDelayEnum = (UPSStatus.GracefulDelay)Enum.Parse(typeof(UPSStatus.GracefulDelay), _manager.WriteAndWaitForResponse("p", 100));
+                UPSStatus.GracefulDelay shutdownDelayEnum = (GracefulDelay)Enum.Parse(typeof(GracefulDelay), _manager.WriteAndWaitForResponse("p", 100));
                 ShutdownDelay = UPSStatus.GetEnumDescription(shutdownDelayEnum);
                 AlarmDelay = GetEnumDescription(SetAlarmDelayEnum(_manager.WriteAndWaitForResponse("k", 100)));
                 Model = _manager.WriteAndWaitForResponse(((char)1).ToString(), 175);
