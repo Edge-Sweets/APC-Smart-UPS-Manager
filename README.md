@@ -1,4 +1,10 @@
 # APC-Smart-UPS-Manager
+
+DEPRECATED.
+
+This software is not still being updated as the software that comes with UPS devices now includes a way to gracefully shut down.
+
+
 Software to control APC Smart UPS.  Gives status updates and allows you to change Battery Alarm, Graceful Shutdown, and Computer Shutdown Delays.  Replacement for APCs UPS Software.
 
 
